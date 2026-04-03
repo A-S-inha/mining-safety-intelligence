@@ -1,0 +1,17 @@
+output.txt
+node_modules
+dist
+.mastra
+.env.development
+.env
+.env.*
+!.env.example
+*.db
+*.db-*
+*.duckdb
+*.duckdb.wal
+.netlify
+.vercel
+
+# MSHA full accident extract is ~226MB — GitHub rejects files > 100MB. Download locally (MSHA Open Data).
+backend/data/Accidents.txt

@@ -1,0 +1,405 @@
+/* Mining Safety Intelligence — light UI shell (avoids dark OS theme washing out text on white cards) */
+.msi-app {
+  color-scheme: light;
+  text-align: left;
+  color: #0f172a;
+  font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.msi-app h1,
+.msi-app h2,
+.msi-app h3 {
+  color: #0f172a;
+  font-family: inherit;
+}
+
+.msi-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.msi-hero {
+  background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.05),
+    0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.msi-hero h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 1.875rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.msi-hero-desc {
+  color: #475569;
+  margin: 10px 0 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  max-width: 52ch;
+}
+
+.msi-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.msi-tab {
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.msi-tab:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.msi-tab--active {
+  background: linear-gradient(180deg, #1e40af 0%, #2563eb 100%);
+  color: #ffffff;
+  border-color: #1d4ed8;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.msi-tab--active:hover {
+  background: linear-gradient(180deg, #1d4ed8 0%, #3b82f6 100%);
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.msi-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.05),
+    0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+.msi-section-title {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.msi-subtitle {
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.msi-field-stack {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.msi-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 15px;
+  background: #ffffff;
+  color: #0f172a;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.msi-input::placeholder {
+  color: #64748b;
+}
+
+.msi-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.22);
+}
+
+.msi-btn-primary {
+  background: linear-gradient(180deg, #1e40af 0%, #2563eb 100%);
+  color: #ffffff;
+  border: 1px solid #1d4ed8;
+  border-radius: 10px;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+  transition:
+    filter 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.msi-btn-primary:hover:not(:disabled) {
+  filter: brightness(1.05);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.msi-btn-primary:disabled {
+  background: #94a3b8;
+  border-color: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.msi-error {
+  margin-top: 14px;
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.msi-notice {
+  margin-bottom: 16px;
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.msi-placeholder {
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  padding: 28px 24px;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.msi-results-block {
+  margin-top: 4px;
+}
+
+.msi-results-heading {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+
+.msi-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.msi-card-list {
+  display: grid;
+  gap: 16px;
+}
+
+/* MUE card */
+.msi-mue-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 22px 24px;
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.05),
+    0 6px 18px rgba(15, 23, 42, 0.05);
+}
+
+.msi-mue-card h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #0f172a;
+}
+
+.msi-mue-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.msi-badge-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.msi-btn-secondary {
+  background: #ffffff;
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.msi-btn-secondary:hover {
+  background: #eff6ff;
+  border-color: #3b82f6;
+}
+
+.msi-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.msi-stat {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.msi-stat-label {
+  font-size: 13px;
+  color: #475569;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.msi-stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 6px;
+}
+
+.msi-stat-value--text {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.msi-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: #1d4ed8;
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.msi-link-btn:hover {
+  color: #1e3a8a;
+}
+
+.msi-narrative {
+  margin-top: 12px;
+  color: #334155;
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+/* Control columns */
+.msi-controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.msi-controls-column h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.msi-empty-inline {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 12px;
+  color: #475569;
+  font-size: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.msi-control-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fafbfc;
+}
+
+.msi-control-item-title {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.msi-control-ref {
+  font-size: 14px;
+  color: #475569;
+  margin-top: 4px;
+}
+
+.msi-freq-badge {
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  border: 1px solid #c7d2fe;
+}
+
+.msi-control-desc {
+  margin: 0;
+  color: #334155;
+  line-height: 1.6;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.msi-control-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}

@@ -1,0 +1,299 @@
+{
+  "id": "conveyor-medium-01",
+  "name": "Conveyor query",
+  "queryType": "medium",
+  "input": {
+    "mineType": "",
+    "keyword": "conveyor"
+  },
+  "notes": "Should retrieve mostly conveyor-related incidents.",
+  "interpretation": {
+    "normalizedMineType": "",
+    "expandedKeywords": [
+      "conveyor",
+      "conveyor belt",
+      "conveyor system"
+    ],
+    "interpretation": "Retrieving mining accident records related to conveyor systems"
+  },
+  "serviceStats": {
+    "totalRecordsAnalyzed": 1300,
+    "recordsSentToModel": 15,
+    "noMatchingRecords": false,
+    "message": ""
+  },
+  "evaluation": {
+    "evidenceVolume": {
+      "evidenceCount": 15,
+      "minEvidenceRecords": 4,
+      "passed": true
+    },
+    "evidenceTerms": {
+      "matchedTerms": [
+        "conveyor",
+        "belt",
+        "roller",
+        "caught"
+      ],
+      "missingTerms": [],
+      "hitRate": 1,
+      "minTermHitRate": 0.6,
+      "passed": true
+    },
+    "candidateQuality": {
+      "candidateCount": 3,
+      "maxCandidates": 3,
+      "issues": [],
+      "passed": true
+    },
+    "grounding": {
+      "candidateChecks": [
+        {
+          "candidate": "Conveyor Belt Accidents",
+          "nameTokensUsed": [
+            "conveyor",
+            "belt",
+            "accidents"
+          ],
+          "supportingNarrativeCount": 8,
+          "grounded": true
+        },
+        {
+          "candidate": "Falling Objects",
+          "nameTokensUsed": [
+            "falling",
+            "objects"
+          ],
+          "supportingNarrativeCount": 0,
+          "grounded": false
+        },
+        {
+          "candidate": "Slips, Trips, and Falls",
+          "nameTokensUsed": [
+            "slips",
+            "trips",
+            "falls"
+          ],
+          "supportingNarrativeCount": 0,
+          "grounded": false
+        }
+      ],
+      "passed": false
+    },
+    "validation": {
+      "hasError": false,
+      "error": null,
+      "passed": true
+    },
+    "passed": false
+  },
+  "rawOutput": {
+    "evidenceSample": [
+      {
+        "rowId": "row-7164",
+        "mineId": "3609436",
+        "accidentDate": "09/11/2018",
+        "accidentType": "Caught in, under or between a moving and a stationary object",
+        "degreeInjury": "FATALITY",
+        "narrative": "The CM had backed out of the number one entry and began tramming to the number two entry when ee noticed the front MBC on the attached system did not pull ahead. At that time, the victim was found at the MBC suffering from crushing injuries. This resulted in a fatality. "
+      },
+      {
+        "rowId": "row-6188",
+        "mineId": "2200519",
+        "accidentDate": "04/11/2000",
+        "accidentType": "Struck by falling object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "EE WAS HELPING UNLOAD 36\" ROLLER FRAMES FOR CONVEYOR SYSTEM. WHILE REACHING TO GET ONE SECTION OF FRAME ANOTHER SECTION FELL OFF THE TRAILER ONTO HIS FOOT."
+      },
+      {
+        "rowId": "row-478",
+        "mineId": "0404678",
+        "accidentDate": "10/19/2001",
+        "accidentType": "Struck by flying object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "LABORER SHOVELING BY CONVEYER WHEN PLANT WAS ABOUT TO START. LOUD BUZZER SOUNDED, WARNING WORKERS TO MOVE AWAY FROM MOVING EQUIPMENT. LABORER IGNORED WARNING AND CONTINUED WORKING. ROCK FROM C ONVEYER HIT RIGHT SIDE OF LABORERS HARD HAT THENHIT RIGHT SHOULDER."
+      },
+      {
+        "rowId": "row-6113",
+        "mineId": "2100209",
+        "accidentDate": "02/06/2020",
+        "accidentType": "Over-exertion in lifting objects",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Employee was helping to lift and position a 42x73 vulcanizing platen on a conveyor belt system with three fellow employees.  The system was shoulder high.  The employee twisted and felt a pop in groin followed by discomfort."
+      },
+      {
+        "rowId": "row-6213",
+        "mineId": "2300217",
+        "accidentDate": "07/30/2004",
+        "accidentType": "Over-exertion in lifting objects",
+        "degreeInjury": "DYS AWY FRM WRK & RESTRCTD ACT",
+        "narrative": "Employee was assisting in removal of return idler on conveyro system, when he felt strain in his abdominal area. did not become reportable until 9-8-04 when ee started to miss work due to surgery."
+      }
+    ],
+    "evidenceForEvaluation": [
+      {
+        "rowId": "row-7164",
+        "mineId": "3609436",
+        "accidentDate": "09/11/2018",
+        "accidentType": "Caught in, under or between a moving and a stationary object",
+        "degreeInjury": "FATALITY",
+        "narrative": "The CM had backed out of the number one entry and began tramming to the number two entry when ee noticed the front MBC on the attached system did not pull ahead. At that time, the victim was found at the MBC suffering from crushing injuries. This resulted in a fatality. "
+      },
+      {
+        "rowId": "row-6188",
+        "mineId": "2200519",
+        "accidentDate": "04/11/2000",
+        "accidentType": "Struck by falling object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "EE WAS HELPING UNLOAD 36\" ROLLER FRAMES FOR CONVEYOR SYSTEM. WHILE REACHING TO GET ONE SECTION OF FRAME ANOTHER SECTION FELL OFF THE TRAILER ONTO HIS FOOT."
+      },
+      {
+        "rowId": "row-478",
+        "mineId": "0404678",
+        "accidentDate": "10/19/2001",
+        "accidentType": "Struck by flying object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "LABORER SHOVELING BY CONVEYER WHEN PLANT WAS ABOUT TO START. LOUD BUZZER SOUNDED, WARNING WORKERS TO MOVE AWAY FROM MOVING EQUIPMENT. LABORER IGNORED WARNING AND CONTINUED WORKING. ROCK FROM C ONVEYER HIT RIGHT SIDE OF LABORERS HARD HAT THENHIT RIGHT SHOULDER."
+      },
+      {
+        "rowId": "row-6113",
+        "mineId": "2100209",
+        "accidentDate": "02/06/2020",
+        "accidentType": "Over-exertion in lifting objects",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Employee was helping to lift and position a 42x73 vulcanizing platen on a conveyor belt system with three fellow employees.  The system was shoulder high.  The employee twisted and felt a pop in groin followed by discomfort."
+      },
+      {
+        "rowId": "row-6213",
+        "mineId": "2300217",
+        "accidentDate": "07/30/2004",
+        "accidentType": "Over-exertion in lifting objects",
+        "degreeInjury": "DYS AWY FRM WRK & RESTRCTD ACT",
+        "narrative": "Employee was assisting in removal of return idler on conveyro system, when he felt strain in his abdominal area. did not become reportable until 9-8-04 when ee started to miss work due to surgery."
+      },
+      {
+        "rowId": "row-1686",
+        "mineId": "1800017",
+        "accidentDate": "01/31/2003",
+        "accidentType": "Struck by... NEC",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "INJURED EMPLOYEE AND CO-WORKERS WERE CLEARING A BLOCKAGE IN THE CEMENT TRANSPORT SYSTEM. THE MATERIAL SUDDENLY BROKE LOOSE, COMING OUT OF OPEN PORT HOLES, AND ENETRING HIS LEFT EYE."
+      },
+      {
+        "rowId": "row-5025",
+        "mineId": "0900577",
+        "accidentDate": "01/13/2005",
+        "accidentType": "Caught in, under or between running or meshing objects",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Employee was adjusting the tracking on a newly installed conyeyor belt, right hand slipped and was caught between the belt and a small tension roller.  Cut to the right pinky finger (four stitches) and abrasions to the back of the right hand."
+      },
+      {
+        "rowId": "row-3038",
+        "mineId": "4101174",
+        "accidentDate": "02/03/2001",
+        "accidentType": "Struck against stationary object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "REMOVING MOTOR FROM OLD CONVEYER TO INSTALL NEW ONE, CONVEYER FELL WITH EMPLOYEE ON IT. ALL SAFETY PROCEDURES WERE BEING FOLLOWED."
+      },
+      {
+        "rowId": "row-7288",
+        "mineId": "4100007",
+        "accidentDate": "08/04/2010",
+        "accidentType": "Struck by flying object",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "The employee was performing maintenance on the drive system of a conveyor belt. While using a chisel and hammer, a piece of metal came off one of the tools and lodged in his left thumb."
+      },
+      {
+        "rowId": "row-3266",
+        "mineId": "4400101",
+        "accidentDate": "11/26/2002",
+        "accidentType": "Fall onto or against objects",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "EE WAS PERFORMING MAINT ON C102 CONVEYER BELT. AFTER FINISHING PUTTING IN BELT SPLICES HE PLACED RIGHT FOOT ON FRAME OF CONVEYER TRUSS. HIS FOOTSLIPPED AND HIS LEFT KNEE HIT THE METAL STRUCTUR E."
+      },
+      {
+        "rowId": "row-2390",
+        "mineId": "3301070",
+        "accidentDate": "04/04/2018",
+        "accidentType": "Over-exertion NEC",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "EE was setting up for a belt move, doing so ee turned while carrying a bottom roller resulting in a strain/sprain to ee lower back. Cause of this incident was employee concentration. PPE was not a factor, compliance with rules/regs was not a factor, mining equipment was not a factor, mining systems was not a factor, miner proficiency was a factor. "
+      },
+      {
+        "rowId": "row-4630",
+        "mineId": "0201892",
+        "accidentDate": "04/20/2000",
+        "accidentType": "Caught in, under or between NEC",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "EMPLOYEE WAS CLEANING AROUND A CONVEYER BELT. AS HE WAS SHOVELING HIS THUMB WAS CAUGHT BETWEEN A TROUGHM ROLL AND THE ROLL FRAME. THE EMPLOYEE'S THUMB WAS CUT AND REQUIRED TWO STITCHES."
+      },
+      {
+        "rowId": "row-3514",
+        "mineId": "4601436",
+        "accidentDate": "09/23/2024",
+        "accidentType": "Struck by falling object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "Employee was changing a bottom roller above the take-up when the roller fell and struck EE on the right foot. Compliance with rules/regs, PPE, mining equip/systems not a factor. Miner proficiency may be a factor."
+      },
+      {
+        "rowId": "row-1381",
+        "mineId": "1517478",
+        "accidentDate": "07/18/2003",
+        "accidentType": "Caught in, under or between running or meshing objects",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "A CONVEYOR BELT UNEXPECTEDLY STARTED EE FELL & WAS RUN THRU A BRIDGE DOLLY ASSEMBLY"
+      },
+      {
+        "rowId": "row-366",
+        "mineId": "0400010",
+        "accidentDate": "02/04/2004",
+        "accidentType": "Over-exertion NEC",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "While getting out of screw conveyer, slipped on rock."
+      }
+    ],
+    "candidates": [
+      {
+        "id": "MUE-1",
+        "name": "Conveyor Belt Accidents",
+        "incidentCount": 13,
+        "fatalityCount": 1,
+        "commonInjuries": [
+          "crushing injuries",
+          "strains",
+          "cuts",
+          "abrasions"
+        ],
+        "severity": "Medium",
+        "materiality": "Material",
+        "summary": "Accidents involving conveyor belts, including being caught in or between moving and stationary objects, struck by flying objects, and over-exertion while performing maintenance or working near conveyor belts."
+      },
+      {
+        "id": "MUE-2",
+        "name": "Falling Objects",
+        "incidentCount": 4,
+        "fatalityCount": 0,
+        "commonInjuries": [
+          "head injuries",
+          "foot injuries"
+        ],
+        "severity": "Low",
+        "materiality": "Review",
+        "summary": "Accidents involving falling objects, including rocks, tools, and equipment, that strike employees while working near conveyor belts or performing maintenance."
+      },
+      {
+        "id": "MUE-3",
+        "name": "Slips, Trips, and Falls",
+        "incidentCount": 3,
+        "fatalityCount": 0,
+        "commonInjuries": [
+          "knee injuries",
+          "back strains"
+        ],
+        "severity": "Low",
+        "materiality": "Review",
+        "summary": "Accidents involving slips, trips, and falls while working near conveyor belts or performing maintenance, resulting in injuries to employees."
+      }
+    ]
+  }
+}

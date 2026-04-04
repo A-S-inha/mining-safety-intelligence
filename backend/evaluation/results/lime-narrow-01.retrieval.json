@@ -1,0 +1,297 @@
+{
+  "id": "lime-narrow-01",
+  "name": "Lime exposure",
+  "queryType": "narrow",
+  "input": {
+    "mineType": "",
+    "keyword": "lime"
+  },
+  "notes": "Should retrieve lime-related exposure records.",
+  "interpretation": {
+    "normalizedMineType": "",
+    "expandedKeywords": [
+      "lime",
+      "lime dust",
+      "lime exposure",
+      "lime handling"
+    ],
+    "interpretation": "The user is searching for mining accidents related to lime."
+  },
+  "serviceStats": {
+    "totalRecordsAnalyzed": 2037,
+    "recordsSentToModel": 15,
+    "noMatchingRecords": false,
+    "message": ""
+  },
+  "evaluation": {
+    "evidenceVolume": {
+      "evidenceCount": 15,
+      "minEvidenceRecords": 3,
+      "passed": true
+    },
+    "evidenceTerms": {
+      "matchedTerms": [
+        "lime",
+        "burn",
+        "eye"
+      ],
+      "missingTerms": [
+        "alkali"
+      ],
+      "hitRate": 0.75,
+      "minTermHitRate": 0.6,
+      "passed": true
+    },
+    "candidateQuality": {
+      "candidateCount": 3,
+      "maxCandidates": 3,
+      "issues": [],
+      "passed": true
+    },
+    "grounding": {
+      "candidateChecks": [
+        {
+          "candidate": "Lime Exposure",
+          "nameTokensUsed": [
+            "lime"
+          ],
+          "supportingNarrativeCount": 11,
+          "grounded": true
+        },
+        {
+          "candidate": "Falls from Elevation",
+          "nameTokensUsed": [
+            "falls",
+            "from",
+            "elevation"
+          ],
+          "supportingNarrativeCount": 4,
+          "grounded": true
+        },
+        {
+          "candidate": "Equipment-Related Injuries",
+          "nameTokensUsed": [
+            "equipment"
+          ],
+          "supportingNarrativeCount": 0,
+          "grounded": false
+        }
+      ],
+      "passed": false
+    },
+    "validation": {
+      "hasError": false,
+      "error": null,
+      "passed": true
+    },
+    "passed": false
+  },
+  "rawOutput": {
+    "evidenceSample": [
+      {
+        "rowId": "row-2977",
+        "mineId": "4100001",
+        "accidentDate": "03/20/2006",
+        "accidentType": "Absorption of radiations, caustics, toxic and noxious substances",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Employee was working on the pulverize lime bagging machine.  While waiting for the bag to fill up, a gust of wind blew lime off of the bag, and into the space between the faceshield and hard hat, affecting his eye behind the safety glasses."
+      },
+      {
+        "rowId": "row-1601",
+        "mineId": "1519345",
+        "accidentDate": "06/05/2014",
+        "accidentType": "Absorption of radiations, caustics, toxic and noxious substances",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "Employee had shut a manual ball valve off on a liquid lime tank and started to uncouple the line at fitting due to line being blocked. When hose came loose the line blew liquid lime in his eyes and mouth due to the handle turning on shaft of ball valve and not closing."
+      },
+      {
+        "rowId": "row-1208",
+        "mineId": "1500081",
+        "accidentDate": "08/15/2000",
+        "accidentType": "Struck by flying object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "EMPLOYEE WAS HEATING A PIECE OF METAL, A PIECE OF RUST OR SOME LIME WENT INTO EYE."
+      },
+      {
+        "rowId": "row-2361",
+        "mineId": "3300127",
+        "accidentDate": "04/08/2003",
+        "accidentType": "Absorption of radiations, caustics, toxic and noxious substances",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "HE WAS REPLACING GREASE LINE ON BAGHOUSE DISCHARGE SCREW CONVEYOR. BAGHOUSE FLUSHED CAUSING LIME TO SHOOT OUT THROUGH HOLE IN LID, STRIKING HIM IN THE FACE."
+      },
+      {
+        "rowId": "row-805",
+        "mineId": "1100121",
+        "accidentDate": "07/10/2020",
+        "accidentType": "Struck by falling object",
+        "degreeInjury": "DYS AWY FRM WRK & RESTRCTD ACT",
+        "narrative": "Employee was working on screen #4 repairing a drive motor when a piece of consolidated limestone dust fell down onto employee from conveyor #33 located above screen #4. Conveyor #33 was not running at the time of accident. The piece of consolidated limestone dust struck employee in the back."
+      }
+    ],
+    "evidenceForEvaluation": [
+      {
+        "rowId": "row-2977",
+        "mineId": "4100001",
+        "accidentDate": "03/20/2006",
+        "accidentType": "Absorption of radiations, caustics, toxic and noxious substances",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Employee was working on the pulverize lime bagging machine.  While waiting for the bag to fill up, a gust of wind blew lime off of the bag, and into the space between the faceshield and hard hat, affecting his eye behind the safety glasses."
+      },
+      {
+        "rowId": "row-1601",
+        "mineId": "1519345",
+        "accidentDate": "06/05/2014",
+        "accidentType": "Absorption of radiations, caustics, toxic and noxious substances",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "Employee had shut a manual ball valve off on a liquid lime tank and started to uncouple the line at fitting due to line being blocked. When hose came loose the line blew liquid lime in his eyes and mouth due to the handle turning on shaft of ball valve and not closing."
+      },
+      {
+        "rowId": "row-1208",
+        "mineId": "1500081",
+        "accidentDate": "08/15/2000",
+        "accidentType": "Struck by flying object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "EMPLOYEE WAS HEATING A PIECE OF METAL, A PIECE OF RUST OR SOME LIME WENT INTO EYE."
+      },
+      {
+        "rowId": "row-2361",
+        "mineId": "3300127",
+        "accidentDate": "04/08/2003",
+        "accidentType": "Absorption of radiations, caustics, toxic and noxious substances",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "HE WAS REPLACING GREASE LINE ON BAGHOUSE DISCHARGE SCREW CONVEYOR. BAGHOUSE FLUSHED CAUSING LIME TO SHOOT OUT THROUGH HOLE IN LID, STRIKING HIM IN THE FACE."
+      },
+      {
+        "rowId": "row-805",
+        "mineId": "1100121",
+        "accidentDate": "07/10/2020",
+        "accidentType": "Struck by falling object",
+        "degreeInjury": "DYS AWY FRM WRK & RESTRCTD ACT",
+        "narrative": "Employee was working on screen #4 repairing a drive motor when a piece of consolidated limestone dust fell down onto employee from conveyor #33 located above screen #4. Conveyor #33 was not running at the time of accident. The piece of consolidated limestone dust struck employee in the back."
+      },
+      {
+        "rowId": "row-6933",
+        "mineId": "3600263",
+        "accidentDate": "08/28/2006",
+        "accidentType": "Over-exertion NEC",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "Employee was bagging lime and felt pain in left elbow, wrist and two small fingers went numb."
+      },
+      {
+        "rowId": "row-6720",
+        "mineId": "3300170",
+        "accidentDate": "06/13/2024",
+        "accidentType": "Contact with hot objects or substances",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "A maintenance employee conducted repairs inside Aerator #3.  During repairs, the employee received burns from steam and lime."
+      },
+      {
+        "rowId": "row-6371",
+        "mineId": "2600550",
+        "accidentDate": "03/04/2015",
+        "accidentType": "Absorption of radiations, caustics, toxic and noxious substances",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "While employee was removing an air hose there was a release of unexpected lime slurry which hit the employee under his safety glasses in the right eye."
+      },
+      {
+        "rowId": "row-12",
+        "mineId": "0100040",
+        "accidentDate": "09/22/2008",
+        "accidentType": "Absorption of radiations, caustics, toxic and noxious substances",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Changing a motor on the #3 and #4 crossover belt he received lime burns to the right and left forearms and left shoulder blade.  He was placed on restrictions of only working in cool environments."
+      },
+      {
+        "rowId": "row-5442",
+        "mineId": "1300058",
+        "accidentDate": "01/26/2026",
+        "accidentType": "Fall from scaffolds, walkways, platforms",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "Was hauling out excess powder from storage tank.  Was using rod tool to A-line loading spout to opening in top of the dust truck.  Was pulling rod toward them when rod slipped off the spout, momentum carried them off the platform they were standing on.  Platform is a portable platform with steps and handrailing on both sides.  They landed on the froze ground and broke Right Ankle."
+      },
+      {
+        "rowId": "row-7282",
+        "mineId": "4100001",
+        "accidentDate": "02/19/2007",
+        "accidentType": "Absorption of radiations, caustics, toxic and noxious substances",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "The employee was working under a vehicle when lime fell down onto his face, was blown under his safety glasses and into his right eye. He flushed eye with water. He asked for medical attention on 2/20/2007. Diagnosis: Superficial injury to cornea."
+      },
+      {
+        "rowId": "row-4747",
+        "mineId": "0400915",
+        "accidentDate": "11/28/2016",
+        "accidentType": "Over-exertion NEC",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Employee was climbing (ascending) vertical ladder on the South Dust Collector.  Just before reaching the catwalk, employee felt a sharp pain in backside.  When employee stood on the catwalk, legs were weak and employee felt like throwing up.  Employee experienced a lumbar strain."
+      },
+      {
+        "rowId": "row-3451",
+        "mineId": "4600005",
+        "accidentDate": "04/04/2019",
+        "accidentType": "Caught in, under or between running or meshing objects",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Cleaning a chute at the lime plant using a dead-blow mallet, a square-point, short-handled shovel, and an air wand employee attempted to use hand to remove a larger piece of material.  This task requires the motor to continue to run to allow for more free-falling material to be moved into the chute until the hopper is empty/clear."
+      },
+      {
+        "rowId": "row-4542",
+        "mineId": "0200024",
+        "accidentDate": "08/15/2022",
+        "accidentType": "Absorption of radiations, caustics, toxic and noxious substances",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "Employee states they had a brief exposure to the dust from a fire suppression system that accidentally activated on their drill.  "
+      },
+      {
+        "rowId": "row-3316",
+        "mineId": "4406371",
+        "accidentDate": "10/05/2023",
+        "accidentType": "Fall from machine",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "IP was working on a project to clear trees that were fallen with an excavator and the IP was cutting off limbs to allow the excavator to safely move them to the burn pile. IP was cutting a limb approximately five feet off the ground when the tree rolled back towards IP and the limb IP had just cut hit IP in the chest, knocking IP to the ground."
+      }
+    ],
+    "candidates": [
+      {
+        "id": "MUE-1",
+        "name": "Lime Exposure",
+        "incidentCount": 8,
+        "fatalityCount": 0,
+        "commonInjuries": [
+          "Eye injuries",
+          "Burns",
+          "Respiratory issues"
+        ],
+        "severity": "Medium",
+        "materiality": "Material",
+        "summary": "Employees were exposed to lime, resulting in eye injuries, burns, and respiratory issues, while working with lime or near lime-containing equipment."
+      },
+      {
+        "id": "MUE-2",
+        "name": "Falls from Elevation",
+        "incidentCount": 3,
+        "fatalityCount": 0,
+        "commonInjuries": [
+          "Broken bones",
+          "Strains"
+        ],
+        "severity": "High",
+        "materiality": "Material",
+        "summary": "Employees fell from elevated surfaces, such as ladders, platforms, or machines, resulting in broken bones and strains."
+      },
+      {
+        "id": "MUE-3",
+        "name": "Equipment-Related Injuries",
+        "incidentCount": 2,
+        "fatalityCount": 0,
+        "commonInjuries": [
+          "Caught in or between objects",
+          "Struck by objects"
+        ],
+        "severity": "Medium",
+        "materiality": "Review",
+        "summary": "Employees were injured by equipment, including being caught in or between objects, or struck by objects, while performing maintenance or operating tasks."
+      }
+    ]
+  }
+}

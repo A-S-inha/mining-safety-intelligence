@@ -1,0 +1,123 @@
+{
+  "id": "lime-narrow-01",
+  "name": "Lime exposure",
+  "queryType": "narrow",
+  "input": {
+    "mineType": "",
+    "keyword": "lime"
+  },
+  "notes": "Should retrieve lime-related exposure records.",
+  "baseline": {
+    "totalRecordsAnalyzed": 388,
+    "matchedRecords": 388,
+    "recordsSentToModel": 15,
+    "noMatchingRecords": false,
+    "message": "",
+    "evidenceCount": 15,
+    "termHitRate": 0.75,
+    "matchedTerms": [
+      "lime",
+      "burn",
+      "eye"
+    ],
+    "missingTerms": [
+      "alkali"
+    ],
+    "groundingScore": 1,
+    "qualityScore": 1,
+    "candidateCount": 3,
+    "candidateNames": [
+      "Lime Exposure",
+      "Equipment Maintenance Accidents",
+      "Caught-in or Struck-by Accidents"
+    ],
+    "recordIds": [
+      "row-1601",
+      "row-6239",
+      "row-2361",
+      "row-4631",
+      "row-2977",
+      "row-1208",
+      "row-6933",
+      "row-6720",
+      "row-6371",
+      "row-7164",
+      "row-12",
+      "row-7282",
+      "row-3451",
+      "row-2895",
+      "row-805"
+    ],
+    "validationError": null
+  },
+  "agentic": {
+    "totalRecordsAnalyzed": 388,
+    "matchedRecords": 15,
+    "recordsSentToModel": 15,
+    "noMatchingRecords": false,
+    "message": "",
+    "evidenceCount": 15,
+    "termHitRate": 0.75,
+    "matchedTerms": [
+      "lime",
+      "burn",
+      "eye"
+    ],
+    "missingTerms": [
+      "alkali"
+    ],
+    "groundingScore": 1,
+    "qualityScore": 1,
+    "candidateCount": 3,
+    "candidateNames": [
+      "Lime Exposure",
+      "Equipment Maintenance Accidents",
+      "Caught-in/Between Accidents"
+    ],
+    "recordIds": [
+      "row-1601",
+      "row-6239",
+      "row-2361",
+      "row-4631",
+      "row-2977",
+      "row-1208",
+      "row-6933",
+      "row-6720",
+      "row-6371",
+      "row-7164",
+      "row-12",
+      "row-7282",
+      "row-3451",
+      "row-2895",
+      "row-805"
+    ],
+    "validationError": null,
+    "interpretation": {
+      "normalizedMineType": "",
+      "expandedKeywords": [
+        "lime"
+      ],
+      "interpretation": "Searching for mining accidents related to lime"
+    }
+  },
+  "overlap": {
+    "overlapCount": 15,
+    "overlapIds": [
+      "row-1601",
+      "row-6239",
+      "row-2361",
+      "row-4631",
+      "row-2977",
+      "row-1208",
+      "row-6933",
+      "row-6720",
+      "row-6371",
+      "row-7164",
+      "row-12",
+      "row-7282",
+      "row-3451",
+      "row-2895",
+      "row-805"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "runStartedAt": "2026-04-04T00:25:55.655Z",
+  "runFinishedAt": "2026-04-04T00:28:41.939Z",
+  "totalCases": 3,
+  "results": [
+    {
+      "id": "belt-broad-01",
+      "name": "Broad belt query",
+      "hasError": false,
+      "baselineMatchedRecords": 1193,
+      "agenticMatchedRecords": 15,
+      "baselineRecordsSentToModel": 15,
+      "agenticRecordsSentToModel": 15,
+      "baselineGroundingScore": 1,
+      "agenticGroundingScore": 1,
+      "baselineTermHitRate": 1,
+      "agenticTermHitRate": 1,
+      "overlapCount": 6
+    },
+    {
+      "id": "conveyor-medium-01",
+      "name": "Conveyor query",
+      "hasError": false,
+      "baselineMatchedRecords": 329,
+      "agenticMatchedRecords": 15,
+      "baselineRecordsSentToModel": 15,
+      "agenticRecordsSentToModel": 15,
+      "baselineGroundingScore": 1,
+      "agenticGroundingScore": 0.6666666666666666,
+      "baselineTermHitRate": 1,
+      "agenticTermHitRate": 1,
+      "overlapCount": 7
+    },
+    {
+      "id": "lime-narrow-01",
+      "name": "Lime exposure",
+      "hasError": false,
+      "baselineMatchedRecords": 388,
+      "agenticMatchedRecords": 15,
+      "baselineRecordsSentToModel": 15,
+      "agenticRecordsSentToModel": 15,
+      "baselineGroundingScore": 1,
+      "agenticGroundingScore": 1,
+      "baselineTermHitRate": 0.75,
+      "agenticTermHitRate": 0.75,
+      "overlapCount": 15
+    }
+  ]
+}

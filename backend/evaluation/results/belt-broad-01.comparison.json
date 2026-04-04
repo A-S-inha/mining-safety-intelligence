@@ -1,0 +1,114 @@
+{
+  "id": "belt-broad-01",
+  "name": "Broad belt query",
+  "queryType": "broad",
+  "input": {
+    "mineType": "",
+    "keyword": "belt"
+  },
+  "notes": "Broad query. Mixed patterns are acceptable if clearly belt-related.",
+  "baseline": {
+    "totalRecordsAnalyzed": 1193,
+    "matchedRecords": 1193,
+    "recordsSentToModel": 15,
+    "noMatchingRecords": false,
+    "message": "",
+    "evidenceCount": 15,
+    "termHitRate": 1,
+    "matchedTerms": [
+      "belt",
+      "conveyor",
+      "roller",
+      "v-belt"
+    ],
+    "missingTerms": [],
+    "groundingScore": 1,
+    "qualityScore": 1,
+    "candidateCount": 3,
+    "candidateNames": [
+      "Conveyor Belt Accidents",
+      "Falls from Equipment",
+      "Caught in or Between Objects"
+    ],
+    "recordIds": [
+      "row-7164",
+      "row-3867",
+      "row-1447",
+      "row-3188",
+      "row-7267",
+      "row-5615",
+      "row-4357",
+      "row-5621",
+      "row-600",
+      "row-836",
+      "row-6740",
+      "row-2492",
+      "row-3639",
+      "row-1148",
+      "row-6535"
+    ],
+    "validationError": null
+  },
+  "agentic": {
+    "totalRecordsAnalyzed": 1256,
+    "matchedRecords": 15,
+    "recordsSentToModel": 15,
+    "noMatchingRecords": false,
+    "message": "",
+    "evidenceCount": 15,
+    "termHitRate": 1,
+    "matchedTerms": [
+      "belt",
+      "conveyor",
+      "roller",
+      "v-belt"
+    ],
+    "missingTerms": [],
+    "groundingScore": 1,
+    "qualityScore": 1,
+    "candidateCount": 3,
+    "candidateNames": [
+      "Conveyor Belt Accidents",
+      "Over-exertion Injuries",
+      "Struck by Objects"
+    ],
+    "recordIds": [
+      "row-233",
+      "row-478",
+      "row-6535",
+      "row-1148",
+      "row-5025",
+      "row-1381",
+      "row-5621",
+      "row-3266",
+      "row-2492",
+      "row-7164",
+      "row-3282",
+      "row-836",
+      "row-2471",
+      "row-3038",
+      "row-1599"
+    ],
+    "validationError": null,
+    "interpretation": {
+      "normalizedMineType": "",
+      "expandedKeywords": [
+        "belt",
+        "conveyor belt",
+        "belt conveyor"
+      ],
+      "interpretation": "Retrieving mining accident records related to belt hazards"
+    }
+  },
+  "overlap": {
+    "overlapCount": 6,
+    "overlapIds": [
+      "row-6535",
+      "row-1148",
+      "row-5621",
+      "row-2492",
+      "row-7164",
+      "row-836"
+    ]
+  }
+}

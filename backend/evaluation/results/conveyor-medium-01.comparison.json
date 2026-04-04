@@ -1,0 +1,115 @@
+{
+  "id": "conveyor-medium-01",
+  "name": "Conveyor query",
+  "queryType": "medium",
+  "input": {
+    "mineType": "",
+    "keyword": "conveyor"
+  },
+  "notes": "Should retrieve mostly conveyor-related incidents.",
+  "baseline": {
+    "totalRecordsAnalyzed": 329,
+    "matchedRecords": 329,
+    "recordsSentToModel": 15,
+    "noMatchingRecords": false,
+    "message": "",
+    "evidenceCount": 15,
+    "termHitRate": 1,
+    "matchedTerms": [
+      "conveyor",
+      "belt",
+      "roller",
+      "caught"
+    ],
+    "missingTerms": [],
+    "groundingScore": 1,
+    "qualityScore": 1,
+    "candidateCount": 3,
+    "candidateNames": [
+      "Conveyor Entanglement",
+      "Conveyor Fall",
+      "Conveyor Struck-By"
+    ],
+    "recordIds": [
+      "row-7164",
+      "row-7267",
+      "row-3867",
+      "row-3188",
+      "row-1447",
+      "row-478",
+      "row-3525",
+      "row-3038",
+      "row-3166",
+      "row-5615",
+      "row-3266",
+      "row-5025",
+      "row-836",
+      "row-4630",
+      "row-1381"
+    ],
+    "validationError": null
+  },
+  "agentic": {
+    "totalRecordsAnalyzed": 1300,
+    "matchedRecords": 15,
+    "recordsSentToModel": 15,
+    "noMatchingRecords": false,
+    "message": "",
+    "evidenceCount": 15,
+    "termHitRate": 1,
+    "matchedTerms": [
+      "conveyor",
+      "belt",
+      "roller",
+      "caught"
+    ],
+    "missingTerms": [],
+    "groundingScore": 0.6666666666666666,
+    "qualityScore": 1,
+    "candidateCount": 3,
+    "candidateNames": [
+      "Conveyor Belt Accidents",
+      "Falling Objects",
+      "Over-exertion Injuries"
+    ],
+    "recordIds": [
+      "row-7164",
+      "row-6188",
+      "row-478",
+      "row-6113",
+      "row-6213",
+      "row-1686",
+      "row-5025",
+      "row-3038",
+      "row-7288",
+      "row-3266",
+      "row-2390",
+      "row-4630",
+      "row-3514",
+      "row-1381",
+      "row-366"
+    ],
+    "validationError": null,
+    "interpretation": {
+      "normalizedMineType": "",
+      "expandedKeywords": [
+        "conveyor",
+        "conveyor belt",
+        "conveyor system"
+      ],
+      "interpretation": "The user is searching for mining accidents related to conveyors."
+    }
+  },
+  "overlap": {
+    "overlapCount": 7,
+    "overlapIds": [
+      "row-7164",
+      "row-478",
+      "row-5025",
+      "row-3038",
+      "row-3266",
+      "row-4630",
+      "row-1381"
+    ]
+  }
+}

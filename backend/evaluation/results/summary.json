@@ -1,0 +1,27 @@
+{
+  "runStartedAt": "2026-04-04T00:10:04.174Z",
+  "runFinishedAt": "2026-04-04T00:11:09.107Z",
+  "totalCases": 3,
+  "passedCases": 1,
+  "failedCases": 2,
+  "results": [
+    {
+      "id": "belt-broad-01",
+      "name": "Broad belt query",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "conveyor-medium-01",
+      "name": "Conveyor query",
+      "passed": false,
+      "error": null
+    },
+    {
+      "id": "lime-narrow-01",
+      "name": "Lime exposure",
+      "passed": false,
+      "error": null
+    }
+  ]
+}

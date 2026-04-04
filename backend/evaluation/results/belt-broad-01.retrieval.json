@@ -1,0 +1,297 @@
+{
+  "id": "belt-broad-01",
+  "name": "Broad belt query",
+  "queryType": "broad",
+  "input": {
+    "mineType": "",
+    "keyword": "belt"
+  },
+  "notes": "Broad query. Mixed patterns are acceptable if clearly belt-related.",
+  "interpretation": {
+    "normalizedMineType": "",
+    "expandedKeywords": [
+      "belt",
+      "conveyor belt",
+      "belt conveyor"
+    ],
+    "interpretation": "Retrieving mining accident records related to belt hazards"
+  },
+  "serviceStats": {
+    "totalRecordsAnalyzed": 1256,
+    "recordsSentToModel": 15,
+    "noMatchingRecords": false,
+    "message": ""
+  },
+  "evaluation": {
+    "evidenceVolume": {
+      "evidenceCount": 15,
+      "minEvidenceRecords": 5,
+      "passed": true
+    },
+    "evidenceTerms": {
+      "matchedTerms": [
+        "belt",
+        "conveyor",
+        "roller",
+        "v-belt"
+      ],
+      "missingTerms": [],
+      "hitRate": 1,
+      "minTermHitRate": 0.5,
+      "passed": true
+    },
+    "candidateQuality": {
+      "candidateCount": 3,
+      "maxCandidates": 3,
+      "issues": [],
+      "passed": true
+    },
+    "grounding": {
+      "candidateChecks": [
+        {
+          "candidate": "Conveyor Belt Accidents",
+          "nameTokensUsed": [
+            "conveyor",
+            "belt",
+            "accidents"
+          ],
+          "supportingNarrativeCount": 10,
+          "grounded": true
+        },
+        {
+          "candidate": "Over-exertion Injuries",
+          "nameTokensUsed": [
+            "over",
+            "exertion"
+          ],
+          "supportingNarrativeCount": 2,
+          "grounded": true
+        },
+        {
+          "candidate": "Struck by Objects",
+          "nameTokensUsed": [
+            "struck",
+            "objects"
+          ],
+          "supportingNarrativeCount": 1,
+          "grounded": true
+        }
+      ],
+      "passed": true
+    },
+    "validation": {
+      "hasError": false,
+      "error": null,
+      "passed": true
+    },
+    "passed": true
+  },
+  "rawOutput": {
+    "evidenceSample": [
+      {
+        "rowId": "row-233",
+        "mineId": "0200144",
+        "accidentDate": "04/13/2010",
+        "accidentType": "Over-exertion NEC",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Employee was working on the conveyor belts cleaning them stooped over for about 15 - 20 minutes on a tight, somewhat confined space. When he was done, he went to step back and off. He twisted his back and felt a sharp pain in his lumbar region. Another employee helped him off the belt. Referred to US Healthworks for medical review; released to light duty."
+      },
+      {
+        "rowId": "row-478",
+        "mineId": "0404678",
+        "accidentDate": "10/19/2001",
+        "accidentType": "Struck by flying object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "LABORER SHOVELING BY CONVEYER WHEN PLANT WAS ABOUT TO START. LOUD BUZZER SOUNDED, WARNING WORKERS TO MOVE AWAY FROM MOVING EQUIPMENT. LABORER IGNORED WARNING AND CONTINUED WORKING. ROCK FROM C ONVEYER HIT RIGHT SIDE OF LABORERS HARD HAT THENHIT RIGHT SHOULDER."
+      },
+      {
+        "rowId": "row-6535",
+        "mineId": "2900175",
+        "accidentDate": "09/01/2005",
+        "accidentType": "Over-exertion in lifting objects",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "EE bent over to pick up a damaged 36\" roller off the floor.  When he bent over he felt a pinching sensation in his lower back.  He went to the Dr. on 9-23-05 and was given restrictions."
+      },
+      {
+        "rowId": "row-1148",
+        "mineId": "1202452",
+        "accidentDate": "10/20/2014",
+        "accidentType": "Struck by... NEC",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "After replacing V-belts on an elevated stone conveyor drive motor, the employee removed the lockout tag. He then returned to the motor to visually observe the belt tension while the belt was running. He went to retrieve a glove that had been left on the motor mount when his right hand came in contact with the belt and drive pulley, causing lacerations to his middle finger."
+      },
+      {
+        "rowId": "row-5025",
+        "mineId": "0900577",
+        "accidentDate": "01/13/2005",
+        "accidentType": "Caught in, under or between running or meshing objects",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Employee was adjusting the tracking on a newly installed conyeyor belt, right hand slipped and was caught between the belt and a small tension roller.  Cut to the right pinky finger (four stitches) and abrasions to the back of the right hand."
+      }
+    ],
+    "evidenceForEvaluation": [
+      {
+        "rowId": "row-233",
+        "mineId": "0200144",
+        "accidentDate": "04/13/2010",
+        "accidentType": "Over-exertion NEC",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Employee was working on the conveyor belts cleaning them stooped over for about 15 - 20 minutes on a tight, somewhat confined space. When he was done, he went to step back and off. He twisted his back and felt a sharp pain in his lumbar region. Another employee helped him off the belt. Referred to US Healthworks for medical review; released to light duty."
+      },
+      {
+        "rowId": "row-478",
+        "mineId": "0404678",
+        "accidentDate": "10/19/2001",
+        "accidentType": "Struck by flying object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "LABORER SHOVELING BY CONVEYER WHEN PLANT WAS ABOUT TO START. LOUD BUZZER SOUNDED, WARNING WORKERS TO MOVE AWAY FROM MOVING EQUIPMENT. LABORER IGNORED WARNING AND CONTINUED WORKING. ROCK FROM C ONVEYER HIT RIGHT SIDE OF LABORERS HARD HAT THENHIT RIGHT SHOULDER."
+      },
+      {
+        "rowId": "row-6535",
+        "mineId": "2900175",
+        "accidentDate": "09/01/2005",
+        "accidentType": "Over-exertion in lifting objects",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "EE bent over to pick up a damaged 36\" roller off the floor.  When he bent over he felt a pinching sensation in his lower back.  He went to the Dr. on 9-23-05 and was given restrictions."
+      },
+      {
+        "rowId": "row-1148",
+        "mineId": "1202452",
+        "accidentDate": "10/20/2014",
+        "accidentType": "Struck by... NEC",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "After replacing V-belts on an elevated stone conveyor drive motor, the employee removed the lockout tag. He then returned to the motor to visually observe the belt tension while the belt was running. He went to retrieve a glove that had been left on the motor mount when his right hand came in contact with the belt and drive pulley, causing lacerations to his middle finger."
+      },
+      {
+        "rowId": "row-5025",
+        "mineId": "0900577",
+        "accidentDate": "01/13/2005",
+        "accidentType": "Caught in, under or between running or meshing objects",
+        "degreeInjury": "DAYS RESTRICTED ACTIVITY ONLY",
+        "narrative": "Employee was adjusting the tracking on a newly installed conyeyor belt, right hand slipped and was caught between the belt and a small tension roller.  Cut to the right pinky finger (four stitches) and abrasions to the back of the right hand."
+      },
+      {
+        "rowId": "row-1381",
+        "mineId": "1517478",
+        "accidentDate": "07/18/2003",
+        "accidentType": "Caught in, under or between running or meshing objects",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "A CONVEYOR BELT UNEXPECTEDLY STARTED EE FELL & WAS RUN THRU A BRIDGE DOLLY ASSEMBLY"
+      },
+      {
+        "rowId": "row-5621",
+        "mineId": "1511065",
+        "accidentDate": "01/31/2002",
+        "accidentType": "Struck against stationary object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "EMPLOYEE'S HAT FELL OFF WHILE WAKING IN THE BELTENTRY AND HE STRUCK HIS HEAD ON A ROOF BOLT INSTALLED IN THE ROOF."
+      },
+      {
+        "rowId": "row-3266",
+        "mineId": "4400101",
+        "accidentDate": "11/26/2002",
+        "accidentType": "Fall onto or against objects",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "EE WAS PERFORMING MAINT ON C102 CONVEYER BELT. AFTER FINISHING PUTTING IN BELT SPLICES HE PLACED RIGHT FOOT ON FRAME OF CONVEYER TRUSS. HIS FOOTSLIPPED AND HIS LEFT KNEE HIT THE METAL STRUCTUR E."
+      },
+      {
+        "rowId": "row-2492",
+        "mineId": "3401285",
+        "accidentDate": "03/01/2024",
+        "accidentType": "Caught in, under or between a moving and a stationary object",
+        "degreeInjury": "DYS AWY FRM WRK & RESTRCTD ACT",
+        "narrative": "Contractor was changing V-belts on #4 conveyor. EE was using index finger on their right hand and was walking the belt around the sheave. EE thinks the belt hung on the back stop, because it broke loose and EE's left wrist was run between the belts and sheave 2 times before EE could get it free."
+      },
+      {
+        "rowId": "row-7164",
+        "mineId": "3609436",
+        "accidentDate": "09/11/2018",
+        "accidentType": "Caught in, under or between a moving and a stationary object",
+        "degreeInjury": "FATALITY",
+        "narrative": "The CM had backed out of the number one entry and began tramming to the number two entry when ee noticed the front MBC on the attached system did not pull ahead. At that time, the victim was found at the MBC suffering from crushing injuries. This resulted in a fatality. "
+      },
+      {
+        "rowId": "row-3282",
+        "mineId": "4403795",
+        "accidentDate": "10/22/2001",
+        "accidentType": "Struck against stationary object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "EE WAS CROSSING A CONVEYOR BELT, PLACED RIGHT KNEE ON BELT RAIL, FELT PAIN."
+      },
+      {
+        "rowId": "row-836",
+        "mineId": "1100877",
+        "accidentDate": "05/23/2000",
+        "accidentType": "Over-exertion NEC",
+        "degreeInjury": "PERM TOT OR PERM PRTL DISABLTY",
+        "narrative": "B1 UNIT - EMPLOYEE WAS HELPING MAKE BELT MOVE; AS HE WAS INSTALLING A 42\" TOP ROLLER, HE FELT APAIN AND A BULGE IN THE RIG SIDE OF HIS GROIN. DID NOT START MISSING UNTIL 6/5/00. TURNED IN PAST 10 DAY LIMIT DUE TO WAITING ON DR. REPORT. HERNIA WILL BE REPAIRED 6/19/00."
+      },
+      {
+        "rowId": "row-2471",
+        "mineId": "3304565",
+        "accidentDate": "07/15/2014",
+        "accidentType": "Struck against a moving object",
+        "degreeInjury": "DYS AWY FRM WRK & RESTRCTD ACT",
+        "narrative": "Was tramming mobile when his shoulder popped."
+      },
+      {
+        "rowId": "row-3038",
+        "mineId": "4101174",
+        "accidentDate": "02/03/2001",
+        "accidentType": "Struck against stationary object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "REMOVING MOTOR FROM OLD CONVEYER TO INSTALL NEW ONE, CONVEYER FELL WITH EMPLOYEE ON IT. ALL SAFETY PROCEDURES WERE BEING FOLLOWED."
+      },
+      {
+        "rowId": "row-1599",
+        "mineId": "1519327",
+        "accidentDate": "12/10/2011",
+        "accidentType": "Caught in, under or between a moving and a stationary object",
+        "degreeInjury": "DAYS AWAY FROM WORK ONLY",
+        "narrative": "Shoveling tail piece while belt was running. Belt caught shovel and pinched finger against tail piece. Mashed end of finger."
+      }
+    ],
+    "candidates": [
+      {
+        "id": "MUE-1",
+        "name": "Conveyor Belt Accidents",
+        "incidentCount": 11,
+        "fatalityCount": 1,
+        "commonInjuries": [
+          "back pain",
+          "lacerations",
+          "finger injuries"
+        ],
+        "severity": "Medium",
+        "materiality": "Material",
+        "summary": "Accidents involving conveyor belts, including being caught in or struck by moving parts, and over-exertion from working on belts."
+      },
+      {
+        "id": "MUE-2",
+        "name": "Over-exertion Injuries",
+        "incidentCount": 3,
+        "fatalityCount": 0,
+        "commonInjuries": [
+          "back pain",
+          "hernia"
+        ],
+        "severity": "Low",
+        "materiality": "Review",
+        "summary": "Injuries resulting from over-exertion, including lifting and bending, while performing tasks such as maintenance and installation."
+      },
+      {
+        "id": "MUE-3",
+        "name": "Struck by Objects",
+        "incidentCount": 4,
+        "fatalityCount": 0,
+        "commonInjuries": [
+          "head injuries",
+          "knee injuries"
+        ],
+        "severity": "Medium",
+        "materiality": "Material",
+        "summary": "Accidents involving being struck by objects, including conveyor belts, stationary objects, and moving equipment."
+      }
+    ]
+  }
+}

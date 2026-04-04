@@ -1,0 +1,35 @@
+[
+    {
+      "id": "belt-broad-01",
+      "name": "Broad belt query",
+      "queryType": "broad",
+      "input": {
+        "mineType": "",
+        "keyword": "belt"
+      },
+      "expectedEvidenceTerms": ["belt", "conveyor", "roller", "v-belt"],
+      "notes": "Broad query. Mixed patterns are acceptable if clearly belt-related."
+    },
+    {
+      "id": "conveyor-medium-01",
+      "name": "Conveyor query",
+      "queryType": "medium",
+      "input": {
+        "mineType": "",
+        "keyword": "conveyor"
+      },
+      "expectedEvidenceTerms": ["conveyor", "belt", "roller", "caught"],
+      "notes": "Should retrieve mostly conveyor-related incidents."
+    },
+    {
+      "id": "lime-narrow-01",
+      "name": "Lime exposure",
+      "queryType": "narrow",
+      "input": {
+        "mineType": "",
+        "keyword": "lime"
+      },
+      "expectedEvidenceTerms": ["lime", "alkali", "burn", "eye"],
+      "notes": "Should retrieve lime-related exposure records."
+    }
+  ]

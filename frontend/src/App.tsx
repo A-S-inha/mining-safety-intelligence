@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { findControls, findMues, findMuesAgentic } from "./api";
+import { findControls, findMuesAgentic, findMuesToolAgent } from "./api";
 import "./App.css";
 import ControlGapTab from "./components/ControlGapTab";
 import MUEFinderTab from "./components/MUEFinderTab";
-import type { ControlsResponse, FindMuesPayload, MUEItem } from "./types";
-
-const USE_AGENTIC_MUE_FLOW = true;
+import type {
+  ControlsResponse,
+  FindMuesPayload,
+  MUEItem,
+  MueSubmitFlow,
+} from "./types";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<"mue" | "controls">("mue");
@@ -18,6 +21,7 @@ export default function App() {
   const [mueError, setMueError] = useState("");
   const [mueInfo, setMueInfo] = useState("");
   const [mueResults, setMueResults] = useState<MUEItem[]>([]);
+  const [mueFlow, setMueFlow] = useState<MueSubmitFlow>("agentic");
 
   const [mueName, setMueName] = useState("");
   const [controlsLoading, setControlsLoading] = useState(false);
@@ -30,17 +34,21 @@ export default function App() {
     setMueLoading(true);
 
     try {
-      const result = USE_AGENTIC_MUE_FLOW
-        ? await findMuesAgentic(mueForm)
-        : await findMues(mueForm);
+      const result =
+        mueFlow === "toolAgent"
+          ? await findMuesToolAgent(mueForm)
+          : await findMuesAgentic(mueForm);
 
       const { mues, noMatchingRecords, message } = result;
 
       setMueResults(mues);
       setMueInfo(noMatchingRecords && message ? message : "");
 
-      if ("interpretation" in result && result.interpretation) {
-        console.log("[agentic interpretation]", result.interpretation);
+      if (result.interpretation) {
+        console.log(`[${mueFlow} interpretation]`, result.interpretation);
+      }
+      if (result.flow) {
+        console.log("[mue flow meta]", result.flow);
       }
     } catch (error) {
       setMueResults([]);
@@ -122,6 +130,8 @@ export default function App() {
             error={mueError}
             info={mueInfo}
             results={mueResults}
+            flow={mueFlow}
+            onFlowChange={setMueFlow}
             onSubmit={handleFindMues}
             onUseForControls={handleUseForControls}
           />

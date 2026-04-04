@@ -16,6 +16,9 @@ export type FindMuesPayload = {
   keyword: string;
 };
 
+/** Which backend pipeline runs when the user submits the MUE form. */
+export type MueSubmitFlow = "agentic" | "toolAgent";
+
 export type ControlItem = {
   id: string;
   controlName: string;

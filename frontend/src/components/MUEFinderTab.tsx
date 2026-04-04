@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import MUECard from "./MUECard";
-import type { FindMuesPayload, MUEItem } from "../types";
+import type { FindMuesPayload, MUEItem, MueSubmitFlow } from "../types";
 
 type Props = {
   form: FindMuesPayload;
@@ -10,6 +10,8 @@ type Props = {
   /** Shown when the search succeeded but no MSHA rows matched (backend skips the LLM). */
   info: string;
   results: MUEItem[];
+  flow: MueSubmitFlow;
+  onFlowChange: (flow: MueSubmitFlow) => void;
   onSubmit: () => void;
   onUseForControls: (mueName: string) => void;
 };
@@ -21,6 +23,8 @@ export default function MUEFinderTab({
   error,
   info,
   results,
+  flow,
+  onFlowChange,
   onSubmit,
   onUseForControls,
 }: Props) {
@@ -29,6 +33,46 @@ export default function MUEFinderTab({
       <div className="msi-card">
         <h2 className="msi-section-title">MUE Finder</h2>
         <p className="msi-subtitle">Enter a mine type, a hazard keyword, or both.</p>
+
+        <div className="msi-flow-field">
+          <span className="msi-flow-label" id="mue-flow-label">
+            Backend flow
+          </span>
+          <div
+            className="msi-segmented"
+            role="group"
+            aria-labelledby="mue-flow-label"
+          >
+            <button
+              type="button"
+              className={
+                flow === "agentic"
+                  ? "msi-segment msi-segment--active"
+                  : "msi-segment"
+              }
+              onClick={() => onFlowChange("agentic")}
+              disabled={loading}
+            >
+              Orchestrated retrieval
+            </button>
+            <button
+              type="button"
+              className={
+                flow === "toolAgent"
+                  ? "msi-segment msi-segment--active"
+                  : "msi-segment"
+              }
+              onClick={() => onFlowChange("toolAgent")}
+              disabled={loading}
+            >
+              MUE tool agent
+            </button>
+          </div>
+          <p className="msi-flow-hint">
+            Orchestrated: server retrieves records, then calls the MUE agent. Tool agent: the model
+            calls <code>mshaSearch</code> before proposing MUEs.
+          </p>
+        </div>
 
         <div className="msi-field-stack">
           <input

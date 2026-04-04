@@ -187,7 +187,7 @@ export async function findMuesWithAgenticFlow(
   }
 
   // STEP 4: Send top ranked records to MUE agent
-  const limitedRecords = summarized.slice(0, 15);
+  const limitedRecords = summarized.slice(0, 75);
 
   console.log("[agentic] retrieval funnel", {
     requestId,

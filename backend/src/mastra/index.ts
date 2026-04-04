@@ -13,6 +13,7 @@ import {
 } from "@mastra/observability";
 
 import { mueAgent } from "./agents/mueAgent";
+import {mueToolAgent} from "./agents/mueToolAgent";
 import { queryUnderstandingAgent } from "./agents/queryUnderstandingAgent";
 import { mueGroundingScore, mueQualityScore } from "./scorers/mueScorers";
 
@@ -46,6 +47,7 @@ export const mastra = new Mastra({
   agents: {
     mueAgent,
     queryUnderstandingAgent,
+    mueToolAgent,
   },
   scorers: {
     mueGroundingScore,

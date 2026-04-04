@@ -27,7 +27,7 @@ export const mueAgentInputSchema = z.object({
 export const mueSystemPrompt = `
 You are an industrial safety analyst identifying candidate Material Unwanted Events (MUEs) from MSHA mining accident records.
 
-Each input record contains:
+Each record contains:
 - rowId
 - mineId
 - accidentDate
@@ -37,102 +37,49 @@ Each input record contains:
 - degreeInjury
 - narrative
 - noInjuries
-- fatalities (0 or 1)
-- coalMetalInd (C=coal, M=metal/nonmetal)
+- fatalities
+- coalMetalInd
 
-You MUST base all reasoning strictly on the provided records.
+Use only the provided records.
 
---------------------------------------------------
-OBJECTIVE
---------------------------------------------------
+Task:
+- Identify repeated hazard patterns from the records
+- Return the most critical patterns first
 
-Identify the MOST CRITICAL recurring operational hazard patterns (MUEs), supported directly by the records.
+Rules:
+- Return at least 1 candidate if at least 2 records show a similar pattern
+- Prefer splitting clusters into narrower well defined patterns rather than merging into broad categories
+- If two groups differ in mechanism for example caught in belt vs falling material, split into two candidates
+- Prefer repeated accidentType patterns
+- If useful, refine the name using repeated narrative or equipment wording
+- Keep names short and close to the record wording
+- Do not invent causes, controls, recommendations, or unsupported conclusions
+- incidentCount must equal the number of supporting records
+- fatalityCount must equal the number of supporting records with fatalities = 1
+- commonInjuries must be based only on repeated injuries in the records
+- Return at least 3 candidates
+- Return fewer if fewer strong patterns exist
+- Only return an empty array if no repeated pattern exists at all
 
---------------------------------------------------
-DEFINITION OF A VALID MUE
---------------------------------------------------
+Ranking:
+- First by fatalityCount
+- Then by incidentCount
 
-A valid MUE must:
-- Represent a CLEAR, REPEATED pattern across MULTIPLE records (minimum 2)
-- Be directly observable from narrative, accidentType, or injury fields
-- Use terminology that appears explicitly in the records (avoid abstraction)
+Severity:
+- Critical = any fatalities
+- High = repeated serious injuries
+- Medium = repeated moderate injuries
+- Low = less severe repeated injuries
 
-INVALID examples:
-- Generic categories like "Equipment Interaction", "Over-exertion", "Falling Objects"
-- Any label not clearly supported by repeated wording in narratives
+Materiality:
+- Material = any fatalities or clearly recurring serious pattern
+- Review = otherwise
 
-VALID examples:
-- "Conveyor Belt Contact Injuries"
-- "Lime Exposure to Eyes"
-- "Caught Between Belt and Roller"
+Return only valid JSON matching the required schema.
+No markdown.
+No explanation.
+JSON only.
 
---------------------------------------------------
-TASK
---------------------------------------------------
-
-1. Identify clusters of records that share clear overlapping terms or patterns.
-2. Only form a cluster if at least 2 records support it.
-3. For each cluster:
-   - Count supporting records → incidentCount
-   - Count fatalities → fatalityCount
-   - Extract repeated injury types → commonInjuries
-4. Rank clusters using:
-   - PRIMARY: fatalityCount (higher = more critical)
-   - SECONDARY: incidentCount (higher = more frequent)
-5. Return the TOP 3 most critical MUEs (or fewer if not enough strong patterns exist).
-
---------------------------------------------------
-STRICT RULES
---------------------------------------------------
-
-- Use ONLY the provided records. No external knowledge.
-- DO NOT infer causes, controls, or missing safeguards.
-- DO NOT generalize beyond visible evidence.
-- DO NOT create a cluster unless it is clearly supported by ≥2 records.
-- MUE names MUST include words present in the narratives or accidentType.
-- incidentCount MUST equal the number of supporting records.
-- fatalityCount MUST equal the number of supporting records with fatalities = 1.
-- If records are weak or inconsistent, return fewer candidates.
-
---------------------------------------------------
-SEVERITY CLASSIFICATION
---------------------------------------------------
-
-Assign severity based ONLY on observed data:
-
-- Critical → any fatalities present
-- High → multiple serious injuries (days away / restricted)
-- Medium → moderate injury patterns
-- Low → minor or infrequent injuries
-
---------------------------------------------------
-MATERIALITY
---------------------------------------------------
-
-- Material → high recurrence OR any fatalities
-- Review → lower recurrence and no fatalities
-
---------------------------------------------------
-OUTPUT FORMAT
---------------------------------------------------
-
-Return ONLY valid JSON matching this schema:
-
-[
-  {
-    "id": "string",
-    "name": "string",
-    "incidentCount": number,
-    "fatalityCount": number,
-    "commonInjuries": ["string"],
-    "severity": "Low | Medium | High | Critical",
-    "materiality": "Material | Review",
-    "summary": "string"
-  }
-]
-
-- summary must describe the pattern using only evidence from records.
-- No markdown. No explanation. JSON only.
 `;
 
 export function buildMueUserPrompt(input: z.infer<typeof mueAgentInputSchema>) {

@@ -19,6 +19,8 @@ export type FindMuesAgenticResult = {
   noMatchingRecords: boolean;
   message?: string;
   interpretation?: QueryInterpretation;
+  /** Backend pipeline label when present (e.g. tool-agent). */
+  flow?: string;
 };
 
 function parseFindMuesResponse(
@@ -29,6 +31,7 @@ function parseFindMuesResponse(
   noMatchingRecords: boolean;
   message?: string;
   interpretation?: QueryInterpretation;
+  flow?: string;
 } {
   let data: unknown;
 
@@ -45,6 +48,7 @@ function parseFindMuesResponse(
     return {
       mues: data as MUEItem[],
       noMatchingRecords: false,
+      flow: undefined,
     };
   }
 
@@ -53,6 +57,7 @@ function parseFindMuesResponse(
     meta?: {
       noMatchingRecords?: boolean;
       message?: string;
+      flow?: string;
       interpretation?: {
         normalizedMineType?: string;
         expandedKeywords?: string[];
@@ -82,11 +87,14 @@ function parseFindMuesResponse(
       }
     : undefined;
 
+  const flow = typeof body.meta?.flow === "string" ? body.meta.flow : undefined;
+
   return {
     mues,
     noMatchingRecords,
     message: noMatchingRecords ? message : undefined,
     interpretation,
+    flow,
   };
 }
 
@@ -146,6 +154,25 @@ export async function findMuesAgentic(
     noMatchingRecords: result.noMatchingRecords,
     message: result.message,
     interpretation: result.interpretation,
+    flow: result.flow,
+  };
+}
+
+export async function findMuesToolAgent(
+  payload: FindMuesPayload
+): Promise<FindMuesAgenticResult> {
+  const result = await postFindMues(
+    "/find-mues-tool-agent",
+    payload,
+    "find-mues-tool-agent"
+  );
+
+  return {
+    mues: result.mues,
+    noMatchingRecords: result.noMatchingRecords,
+    message: result.message,
+    interpretation: result.interpretation,
+    flow: result.flow,
   };
 }
 

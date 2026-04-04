@@ -2,14 +2,100 @@ import type { ControlsResponse, FindMuesPayload, MUEItem } from "./types";
 
 const API_BASE_URL = "http://localhost:4000";
 
+export type QueryInterpretation = {
+  normalizedMineType: string;
+  expandedKeywords: string[];
+  interpretation: string;
+};
+
 export type FindMuesResult = {
   mues: MUEItem[];
   noMatchingRecords: boolean;
   message?: string;
 };
 
-export async function findMues(payload: FindMuesPayload): Promise<FindMuesResult> {
-  const response = await fetch(`${API_BASE_URL}/find-mues`, {
+export type FindMuesAgenticResult = {
+  mues: MUEItem[];
+  noMatchingRecords: boolean;
+  message?: string;
+  interpretation?: QueryInterpretation;
+};
+
+function parseFindMuesResponse(
+  rawText: string,
+  routeLabel: string
+): {
+  mues: MUEItem[];
+  noMatchingRecords: boolean;
+  message?: string;
+  interpretation?: QueryInterpretation;
+} {
+  let data: unknown;
+
+  try {
+    data = rawText ? JSON.parse(rawText) : null;
+  } catch {
+    console.error(`[${routeLabel}] invalid JSON body`, rawText);
+    throw new Error(`Invalid JSON from ${routeLabel}.`);
+  }
+
+  console.log(`[${routeLabel}] response body`, data);
+
+  if (Array.isArray(data)) {
+    return {
+      mues: data as MUEItem[],
+      noMatchingRecords: false,
+    };
+  }
+
+  const body = data as {
+    mues?: MUEItem[];
+    meta?: {
+      noMatchingRecords?: boolean;
+      message?: string;
+      interpretation?: {
+        normalizedMineType?: string;
+        expandedKeywords?: string[];
+        interpretation?: string;
+      };
+    };
+  };
+
+  const mues = Array.isArray(body.mues) ? body.mues : [];
+  const noMatchingRecords = Boolean(body.meta?.noMatchingRecords);
+  const message =
+    typeof body.meta?.message === "string" ? body.meta.message : undefined;
+
+  const interpretation = body.meta?.interpretation
+    ? {
+        normalizedMineType:
+          typeof body.meta.interpretation.normalizedMineType === "string"
+            ? body.meta.interpretation.normalizedMineType
+            : "",
+        expandedKeywords: Array.isArray(body.meta.interpretation.expandedKeywords)
+          ? body.meta.interpretation.expandedKeywords
+          : [],
+        interpretation:
+          typeof body.meta.interpretation.interpretation === "string"
+            ? body.meta.interpretation.interpretation
+            : "",
+      }
+    : undefined;
+
+  return {
+    mues,
+    noMatchingRecords,
+    message: noMatchingRecords ? message : undefined,
+    interpretation,
+  };
+}
+
+async function postFindMues(
+  path: string,
+  payload: FindMuesPayload,
+  routeLabel: string
+) {
+  const response = await fetch(`${API_BASE_URL}${path}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -26,35 +112,41 @@ export async function findMues(payload: FindMuesPayload): Promise<FindMuesResult
     } catch {
       errorBody = null;
     }
-    console.error("[find-mues] error response", response.status, rawText);
-    throw new Error(errorBody?.error ?? "Failed to fetch MUE candidates.");
+
+    console.error(`[${routeLabel}] error response`, response.status, rawText);
+    throw new Error(errorBody?.error ?? `Failed to fetch from ${routeLabel}.`);
   }
 
-  let data: unknown;
-  try {
-    data = rawText ? JSON.parse(rawText) : null;
-  } catch {
-    console.error("[find-mues] invalid JSON body", rawText);
-    throw new Error("Invalid JSON from find-mues.");
-  }
+  return parseFindMuesResponse(rawText, routeLabel);
+}
 
-  console.log("[find-mues] response body", data);
+export async function findMues(
+  payload: FindMuesPayload
+): Promise<FindMuesResult> {
+  const result = await postFindMues("/find-mues", payload, "find-mues");
 
-  if (Array.isArray(data)) {
-    return { mues: data as MUEItem[], noMatchingRecords: false };
-  }
-
-  const body = data as {
-    mues?: MUEItem[];
-    meta?: { noMatchingRecords?: boolean; message?: string };
+  return {
+    mues: result.mues,
+    noMatchingRecords: result.noMatchingRecords,
+    message: result.message,
   };
+}
 
-  const mues = Array.isArray(body.mues) ? body.mues : [];
-  const noMatchingRecords = Boolean(body.meta?.noMatchingRecords);
-  const message =
-    typeof body.meta?.message === "string" ? body.meta.message : undefined;
+export async function findMuesAgentic(
+  payload: FindMuesPayload
+): Promise<FindMuesAgenticResult> {
+  const result = await postFindMues(
+    "/find-mues-agentic",
+    payload,
+    "find-mues-agentic"
+  );
 
-  return { mues, noMatchingRecords, message: noMatchingRecords ? message : undefined };
+  return {
+    mues: result.mues,
+    noMatchingRecords: result.noMatchingRecords,
+    message: result.message,
+    interpretation: result.interpretation,
+  };
 }
 
 export async function findControls(_mueName: string): Promise<ControlsResponse> {

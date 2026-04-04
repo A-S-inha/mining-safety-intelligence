@@ -11,33 +11,57 @@ import {
   CloudExporter,
   SensitiveDataFilter,
 } from "@mastra/observability";
+
 import { mueAgent } from "./agents/mueAgent";
+import { queryUnderstandingAgent } from "./agents/queryUnderstandingAgent";
+import { mueGroundingScore, mueQualityScore } from "./scorers/mueScorers";
+
+const disableObservability =
+  process.env.DISABLE_MASTRA_OBSERVABILITY === "true";
+
+const hasCloudToken = Boolean(process.env.MASTRA_CLOUD_ACCESS_TOKEN);
+
+const observabilityDomains = disableObservability
+  ? {}
+  : {
+      observability: await new DuckDBStore().getStore("observability"),
+    };
+
+const observabilityConfig = disableObservability
+  ? undefined
+  : new Observability({
+      configs: {
+        default: {
+          serviceName: "mastra",
+          exporters: hasCloudToken
+            ? [new DefaultExporter(), new CloudExporter()]
+            : [new DefaultExporter()],
+          spanOutputProcessors: [new SensitiveDataFilter()],
+        },
+      },
+    });
 
 export const mastra = new Mastra({
   workflows: {},
-  agents: { mueAgent },
-  scorers: {},
+  agents: {
+    mueAgent,
+    queryUnderstandingAgent,
+  },
+  scorers: {
+    mueGroundingScore,
+    mueQualityScore,
+  },
   storage: new MastraCompositeStore({
     id: "composite-storage",
     default: new LibSQLStore({
       id: "mastra-storage",
       url: "file:./mastra.db",
     }),
-    domains: {
-      observability: await new DuckDBStore().getStore("observability"),
-    },
+    domains: observabilityDomains,
   }),
   logger: new PinoLogger({
     name: "Mastra",
     level: "info",
   }),
-  observability: new Observability({
-    configs: {
-      default: {
-        serviceName: "mastra",
-        exporters: [new DefaultExporter(), new CloudExporter()],
-        spanOutputProcessors: [new SensitiveDataFilter()],
-      },
-    },
-  }),
+  observability: observabilityConfig,
 });

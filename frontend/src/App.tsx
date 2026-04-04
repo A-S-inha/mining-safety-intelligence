@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { findControls, findMues } from "./api";
+import { findControls, findMues, findMuesAgentic } from "./api";
 import "./App.css";
 import ControlGapTab from "./components/ControlGapTab";
 import MUEFinderTab from "./components/MUEFinderTab";
 import type { ControlsResponse, FindMuesPayload, MUEItem } from "./types";
+
+const USE_AGENTIC_MUE_FLOW = true;
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<"mue" | "controls">("mue");
@@ -28,9 +30,18 @@ export default function App() {
     setMueLoading(true);
 
     try {
-      const { mues, noMatchingRecords, message } = await findMues(mueForm);
+      const result = USE_AGENTIC_MUE_FLOW
+        ? await findMuesAgentic(mueForm)
+        : await findMues(mueForm);
+
+      const { mues, noMatchingRecords, message } = result;
+
       setMueResults(mues);
       setMueInfo(noMatchingRecords && message ? message : "");
+
+      if ("interpretation" in result && result.interpretation) {
+        console.log("[agentic interpretation]", result.interpretation);
+      }
     } catch (error) {
       setMueResults([]);
       setMueInfo("");

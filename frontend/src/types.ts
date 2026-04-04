@@ -28,3 +28,8 @@ export type ControlsResponse = {
   preventativeControls: ControlItem[];
   mitigatingControls: ControlItem[];
 };
+export type QueryInterpretation = {
+  normalizedMineType: string;
+  expandedKeywords: string[];
+  interpretation: string;
+};
